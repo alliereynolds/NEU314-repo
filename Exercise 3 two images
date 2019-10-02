@@ -1,0 +1,44 @@
+img = imread("el-capitan.png")
+imshow(img)
+size(img)
+
+########
+function image_colors(img)
+    clf();
+    imread("el-capitan.png");
+    imshow(img);
+    red = img[:,:,1]
+    green = img[:,:,2]
+    blue = img[:,:,3]
+    println("BUG BUG BUG")
+end
+
+"""
+function image_colors()
+
+Sorts different color channels in an image into separate variables and returns those variables.
+
+Args:
+    imread() = inputs image with string title
+
+Returns
+    red = number of red channels
+    green = number of green channels
+    blue = number of blue channels
+"""
+
+
+###### new image
+image2 = zeros(360, 640, 3)
+
+image2[:,:,1] = img[:,:,2]
+image2[:,:,2] = img[:,:,3]
+image2[:,:,3] = img[:,:,1]
+
+subplot(1,2,1)
+imshow(img)
+axis("off")
+subplot(1,2,2)
+imshow(image2)
+axis("off")
+plot(title("El Capitan Separated by Channel Colors"))
